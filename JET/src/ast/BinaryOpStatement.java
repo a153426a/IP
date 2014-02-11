@@ -13,7 +13,7 @@ public abstract class BinaryOpStatement extends LogicStatement {
 	
 	@Override
 	public String toString() {
-		return nestedStatementLeft + symbol.toString() + nestedStatementRight;
+		return "(" + nestedStatementLeft + symbol.toString() + nestedStatementRight + ")";
 	}
 
 }

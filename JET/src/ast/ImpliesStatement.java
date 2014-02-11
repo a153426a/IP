@@ -7,9 +7,4 @@ public class ImpliesStatement extends BinaryOpStatement {
 		super(Symbol.IMPLIES, nestedStatementLeft, nestedStatementRight);
 	}
 
-	@Override
-	public String toString() {
-		return nestedStatementLeft + symbol.toString() + nestedStatementRight;
-	}
-
 }

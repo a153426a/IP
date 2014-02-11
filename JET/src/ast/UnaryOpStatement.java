@@ -11,7 +11,7 @@ public abstract class UnaryOpStatement extends LogicStatement {
 
 	@Override
 	public String toString() {
-		return symbol.toString() + nestedStatement;
+		return "(" + symbol.toString() + nestedStatement + ")";
 	}
 	
 }

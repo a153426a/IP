@@ -7,9 +7,4 @@ public class AndStatement extends BinaryOpStatement {
 		super(Symbol.AND, nestedStatementLeft, nestedStatementRight);
 	}
 
-	@Override
-	public String toString() {
-		return nestedStatementLeft + symbol.toString() + nestedStatementRight;
-	}
-
 }

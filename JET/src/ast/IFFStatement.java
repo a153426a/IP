@@ -7,9 +7,4 @@ public class IFFStatement extends BinaryOpStatement {
 		super(Symbol.IFF, nestedStatementLeft, nestedStatementRight);
 	}
 
-	@Override
-	public String toString() {
-		return nestedStatementLeft + symbol.toString() + nestedStatementRight;
-	}
-
 }
