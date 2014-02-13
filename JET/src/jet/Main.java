@@ -1,5 +1,7 @@
 package jet;
 
+import java.io.FileReader;
+
 import lexerAndParser.Lexer;
 import lexerAndParser.parser;
 import ast.LogicStatement;
@@ -7,16 +9,16 @@ import ast.LogicStatement;
 public class Main {
 	
 	public static void main(String[] args) throws Exception {
-		Lexer l = new Lexer(System.in);
-		parser p=new parser(l);
-		System.out.println(l.next_token());
-		System.out.println(l.next_token());
-		System.out.println(l.next_token());
-        //LogicStatement s = (LogicStatement) p.parse().value;
-        //String ss = p.parse().toString();
-		p.parse();
+		FileReader fr = new FileReader("test.txt");
 		
-
+		Lexer l = new Lexer(fr);
+		parser p = new parser(l);
+        LogicStatement s = (LogicStatement) p.parse().value;
+        //String ss = p.parse().toString();
+		System.out.println(s);
+		
+		if (fr != null)
+			fr.close();
 	}
 
 }

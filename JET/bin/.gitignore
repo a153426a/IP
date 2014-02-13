@@ -1,6 +1,4 @@
-/LexerAndParser
-/parser
+/ast
 /java_cup
 /jet
-/ast
 /lexerAndParser
