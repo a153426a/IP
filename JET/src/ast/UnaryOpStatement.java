@@ -8,10 +8,5 @@ public abstract class UnaryOpStatement extends LogicStatement {
 		super(symbol);
 		this.nestedStatement = nestedStatement;
 	}
-
-	@Override
-	public String toString() {
-		return "(" + symbol.toString() + nestedStatement + ")";
-	}
 	
 }

@@ -249,7 +249,7 @@ public class Lexer implements java_cup.runtime.Scanner {
    *
    * @param   in  the java.io.Inputstream to read input from.
    */
-  Lexer(java.io.InputStream in) {
+  public Lexer(java.io.InputStream in) {
     this(new java.io.InputStreamReader
              (in, java.nio.charset.Charset.forName("UTF-8")));
   }
