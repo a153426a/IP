@@ -1,32 +1,20 @@
 package jet;
 
-import static javax.swing.GroupLayout.Alignment.BASELINE;
-import static javax.swing.GroupLayout.Alignment.LEADING;
+import static javax.swing.GroupLayout.Alignment.*;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
+import java.awt.event.*;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.swing.BorderFactory;
-import javax.swing.GroupLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.UIManager;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 
-import lexerAndParser.Lexer;
-import lexerAndParser.parser;
-import ast.LogicStatement;
-import ast.Symbol;
+import lexerAndParser.*;
+import ast.*;
 
-public class test extends JFrame {
-	public test() {
-		JLabel label = new JLabel("Start Formula");
+public class start extends JFrame {
+	public start() {
+		JLabel label = new JLabel("Start Formulas");
 		JLabel label2 = new JLabel("Result");
 		final JLabel result = new JLabel(" ");
 		final JTextField textField = new JTextField(40);
@@ -40,7 +28,7 @@ public class test extends JFrame {
 		JButton notSymbol = new JButton("¬");
 		JButton forAllSymbol = new JButton("∀");
 		JButton thereExistSymbol = new JButton("∃");
-		JButton showTreeButton = new JButton("Show Tree");
+		JButton showTreeButton = new JButton("check");
 		JButton cancelButton = new JButton("Cancel");
 
 		// remove redundant default border of check boxes - they would hinder
@@ -156,9 +144,7 @@ public class test extends JFrame {
 																.addComponent(
 																		thereExistSymbol)))));
 
-		setTitle("IP");
-		pack();
-		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
 
 		andSymbol.addActionListener(new ActionListener() {
 
@@ -270,7 +256,7 @@ public class test extends JFrame {
 					Lexer l = new Lexer(is);
 					parser p = new parser(l);
 					LogicStatement ls = (LogicStatement) p.parse().value;
-					result.setText(ls.toString());
+					//TODO
 				} catch (UnsupportedEncodingException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -283,9 +269,21 @@ public class test extends JFrame {
 			}
 		});
 		
+		setTitle("IP");
+		pack();
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		
 	}
+	
+	
 
 	public static void main(String args[]) {
+		List<LogicStatement> l = new ArrayList(); 
+		LogicStatement a = new Variable("a"); 
+		LogicStatement b = new Variable("b"); 
+		l.add(a);
+		l.add(b);
+		System.out.println(l.size());
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -296,7 +294,7 @@ public class test extends JFrame {
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
-				new test().setVisible(true);
+				new start().setVisible(true);
 			}
 		});
 	}
