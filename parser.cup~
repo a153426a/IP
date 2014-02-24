@@ -34,7 +34,7 @@ parser code {:
   
 terminal           SEMI, AND, IFF, OR, TRUTH, FALSITY, EQUALS, IMPLIES, NOT, FORALL, THEREEXISTS, LBRACKET, RBRACKET, COMMA;   
 terminal String   ID;   
-non terminal LogicStatement     LogicStatements, UnaryOpStatements, BinaryOpStatements, NotStatements, Variables, AndStatements, OrStatements, ImpliesStatements, IFFStatements;   
+non terminal LogicStatement     statementList, oneOfStatement, LogicStatements, UnaryOpStatements, BinaryOpStatements, NotStatements, Variables, AndStatements, OrStatements, ImpliesStatements, IFFStatements;   
 
 
 precedence left COMMA;
@@ -51,6 +51,13 @@ precedence left THEREEXISTS;
 precedence left FORALL;
 precedence left LBRACKET;
 precedence left RBRACKET;
+precedence left SEMI;
+
+statementList ::= statementList oneOfStatement 
+                  | 
+                  oneOfStatement; 
+                  
+oneOfStatement ::= LogicStatements SEMI;
 
 LogicStatements ::= Variables:v
                  {: RESULT = v; :}

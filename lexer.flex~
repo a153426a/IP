@@ -42,6 +42,7 @@ IDENTIFIER = [A-Za-z_][A-Za-z_0-9]*
 		"(" { return symbol(sym.LBRACKET); }   
 		")" { return symbol(sym.RBRACKET); }   
 		"," { return symbol(sym.COMMA); }
+		";" { return symbol(sym.SEMI); }
     {IDENTIFIER}       { return symbol(sym.ID, new String(yytext()));}   
    
     {WhiteSpace}       { }     
